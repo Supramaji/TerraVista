@@ -1,0 +1,904 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Urbanist, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+}
+
+:root {
+  --bg-color: #f4f3ff;
+  --btn-color: #646cff;
+  --dark-color: #242424;
+  --helper-color: #99b9ff;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 50%;
+  text-align: justify;
+}
+
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 5.4rem;
+  line-height: 1.1;
+  font-weight: bold;
+}
+
+p,
+li,
+label,
+input,
+textarea {
+  font-size: 1.8rem;
+  line-height: 1.56;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.06rem;
+}
+
+a {
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  color: var(--btn-color);
+  text-decoration: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+/* react toastify css  */
+
+.toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  font-size: 1.7rem;
+}
+
+/*? layout Rule  */
+
+.container {
+  max-width: 140rem;
+  padding: 4rem 2.4rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: 6.4rem;
+}
+
+.grid-two-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-four-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/*? Module Rules / Reusable */
+button {
+  text-transform: capitalize;
+  padding: 1rem 2.2rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  background-color: var(--btn-color);
+  border-radius: 0.8rem;
+  -webkit-border-radius: 0.8rem;
+  -moz-border-radius: 0.8rem;
+  -ms-border-radius: 0.8rem;
+  -o-border-radius: 0.8rem;
+  border: 0.1rem solid transparent;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  transition: border-color 0.3s;
+  -webkit-transition: border-color 0.3s;
+  -moz-transition: border-color 0.3s;
+  -ms-transition: border-color 0.3s;
+  -o-transition: border-color 0.3s;
+}
+
+.secondary-btn {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 0.2rem var(--btn-color);
+  margin-left: 3.2rem;
+}
+
+/*? state rules  */
+
+button:hover {
+  box-shadow: inset 0 0 0 0.2rem var(--bg-color);
+}
+
+a:hover,
+a.active {
+  color: #535bf2;
+}
+
+/* pseduo elements  */
+.main-heading {
+  position: relative;
+  text-transform: capitalize;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 0.5rem;
+    background-color: var(--btn-color);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover,
+  a.active {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/***** Hero Section *****/
+
+.section-hero {
+  & .grid {
+    align-items: center;
+  }
+
+  .hero-content {
+    & p {
+      margin: 2.4rem 0 4.8rem 0;
+      &:first-child {
+        margin: 0 0 1.2rem 0;
+      }
+    }
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    & img {
+      width: 70%;
+      height: auto;
+    }
+  }
+}
+
+/***** End Hero  *****/
+
+/***** analytics Section *****/
+
+.section-analytics {
+  margin: 9.6rem 0;
+
+  & .container {
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+  }
+
+  & .grid {
+    color: var(--dark-color);
+
+    & .div1 {
+      text-align: center;
+      border-right: 0.2rem solid var(--dark-color);
+
+      &:last-child {
+        border: none;
+      }
+      & h2 {
+        font-size: 4.8rem;
+      }
+      & p {
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+/***** End analytics Section *****/
+
+/** -----------------------
+** contact section css
+** -------------------------  */
+.section-contact {
+  & .contact-content {
+    padding: 0;
+
+    & h1 {
+      margin-bottom: 3.2rem;
+    }
+  }
+  & .container {
+    padding-top: 3.2rem;
+  }
+  & .contact-img {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    & img {
+      width: 80%;
+      height: auto;
+    }
+  }
+
+  & .section-form {
+    & form {
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+    }
+    & label {
+      display: block;
+      margin-bottom: 1.2rem;
+      text-transform: capitalize;
+    }
+
+    & input,
+    textarea {
+      width: 80%;
+      padding: 0.4rem 0.6rem;
+    }
+  }
+}
+
+/* Error Page Styling */
+#error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Ensures full viewport height */
+}
+
+#error-page .content {
+  max-width: 70rem;
+  text-align: center;
+}
+
+.content h2.header {
+  font-size: 18vw;
+  line-height: 1em;
+  animation: animate 10s ease-in-out infinite;
+  background: repeating-linear-gradient(
+    -60deg,
+    #71b7e6,
+    var(--btn-color),
+    #b98acc,
+    #ee8176,
+    #b98acc,
+    var(--btn-color),
+    #9b59b6
+  );
+  background-size: 500%;
+  background-clip: text; /* Standard property */
+  -webkit-background-clip: text; /* Vendor prefix for WebKit-based browsers */
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
+  position: relative;
+  -webkit-animation: animate 10s ease-in-out infinite; /* Vendor prefix for WebKit-based browsers */
+  animation: animate 10s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.content h4 {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.content .btns {
+  margin: 25px 0;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.content .btns a {
+  display: inline-block;
+  margin: 0 10px;
+  text-decoration: none;
+  border: 2px solid var(--btn-color);
+  color: var(--btn-color);
+  font-weight: 500;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.content .btns a:hover {
+  background: var(--btn-color);
+  color: #fff;
+}
+
+/** -----------------------
+** registration section css
+** -------------------------  */
+
+.section-registration {
+  padding: 0 3.2rem;
+
+  & .container {
+    /* background-color: #fff; */
+    padding-top: 3.2rem;
+    align-items: center;
+
+    & img {
+      width: 80%;
+      height: auto;
+    }
+  }
+
+  & .registration-form {
+    & label {
+      display: block;
+      margin: 2.4rem 0 0.8rem 0;
+      text-transform: capitalize;
+    }
+    & input {
+      width: 80%;
+      padding: 0.6rem 0.6rem;
+    }
+
+    & button {
+      margin-top: 3.2rem;
+    }
+  }
+}
+
+/* Admin Navigation */
+.adminNav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0; /* Ensure no default padding is applied */
+  margin: 0; /* Ensure no default margin is applied */
+  list-style-type: none; /* Remove default list styling */
+}
+
+/* Admin Container */
+.adminContainer {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding-top: 0;
+  gap: 1rem; /* Add a small gap between columns if needed */
+}
+
+/* Admin List */
+.adminList {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Ensure no default padding is applied */
+  margin: 0; /* Ensure no default margin is applied */
+}
+
+.adminList li {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  gap: 1rem; /* Add a gap between grid items if needed */
+}
+
+/** -----------------------
+** services section css
+** -------------------------  */
+
+.section-services {
+  & .container:first-child {
+    padding: 0;
+  }
+
+  & .grid-three-cols {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.2rem;
+  }
+
+  & .card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem; /* Adjusted for better spacing */
+    border: 0.2rem solid var(--helper-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem; /* Padding added to the card */
+    box-sizing: border-box; /* Ensure padding doesn't affect the total width */
+    width: 100%; /* Ensures the card takes full width of the grid column */
+    max-width: 400px; /* Fixed maximum width for all cards */
+    height: 500px; /* Fixed height for all cards */
+    display: flex;
+    flex-direction: column;
+
+    & .card-img {
+      position: relative;
+      width: 100%;
+      height: 60%; /* Fixed height for the image container */
+      overflow: hidden;
+      border-bottom: 0.2rem solid var(--helper-color);
+      
+      & img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Maintain aspect ratio and cover the area */
+        filter: drop-shadow(0 0 2rem 2rem #fff);
+        -webkit-filter: drop-shadow(0 0 2rem 2rem #fff);
+      }
+    }
+
+    & .card-details {
+      padding: 1.6rem; /* Adjusted padding */
+      flex-grow: 1; /* Allow details section to grow and take available space */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      & .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns for provider and price */
+        gap: 12rem; /* Space between provider and price */
+      }
+
+      & .grid p {
+        font-size: 1.4rem; /* Increased font size for provider and price */
+        margin: 0; /* Adjust margin if needed */
+      }
+      
+      & h2 {
+        font-size: 2rem; /* Adjusted font size for service name */
+        margin: 0.8rem 0 1.2rem 0; /* Adjusted margin */
+      }
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    & .grid-three-cols {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    & .grid-three-cols {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* Admin Dashboard Styles */
+
+.admin-dashboard {
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  border: 0.2rem solid var(--btn-color);
+  min-height: 70rem;
+}
+
+.admin-dashboard header {
+  border-right: 0.2rem solid var(--btn-color);
+  padding: 2rem;
+}
+
+.admin-dashboard header ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  text-transform: uppercase;
+  margin-top: 10rem;
+}
+
+.admin-dashboard header ul li a {
+  color: var(--bg-color);
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s ease, color 0.3s ease;
+  text-decoration: none; /* Remove underline from links */
+}
+
+.admin-dashboard header ul li a:hover {
+  background-color: var(--dark-color);
+  color: var(--btn-color);
+}
+
+/* Admin Users and Services Styles */
+.admin-users,
+.admin-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Table Styles for Users and Services */
+.admin-users table,
+.admin-services table {
+  width: 100%;
+  background: #fff;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+  border-collapse: collapse;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+/* Table Header and Cell Styles */
+.admin-users table th,
+.admin-services table th,
+.admin-users table td,
+.admin-services table td {
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--dark-color);
+  border-bottom: 0.1rem solid var(--btn-color);
+}
+
+.admin-users table th,
+.admin-services table th {
+  background-color: var(--helper-color);
+  text-transform: capitalize;
+}
+
+.admin-users table td,
+.admin-services table td {
+  width: auto;
+}
+
+/* Table Row Styles for Users and Services */
+.admin-users table tbody tr,
+.admin-services table tbody tr {
+  display: table-row;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.admin-users table tbody tr:hover,
+.admin-services table tbody tr:hover {
+  background-color: var(--light-color);
+}
+
+/* Last Child Styles for Users and Services */
+.admin-users table tbody tr:last-child,
+.admin-services table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Smaller Edit and Delete buttons */
+.admin-users table tbody tr td button,
+.admin-users table tbody tr td a,
+.admin-services table tbody tr td button,
+.admin-services table tbody tr td a {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+}
+
+.admin-users table tbody tr td .delete-button,
+.admin-services table tbody tr td .delete-button {
+  background-color: #ff0000; /* Red background for delete button */
+  color: #ffffff;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.admin-users table tbody tr td a,
+.admin-services table tbody tr td a {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+}
+
+/* Admin Contacts Page Styles */
+.admin-contacts-section {
+  padding: 2rem;
+}
+
+.admin-services h1 {
+  font-size: 4rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 0.2rem solid var(--btn-color);
+  padding-bottom: 1rem;
+}
+
+.container100 h1 {
+  font-size: 4rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 0.2rem solid var(--btn-color);
+  padding-bottom: 1rem;
+}
+
+.admin-contacts-section h1 {
+  font-size: 4rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 0.2rem solid var(--btn-color);
+  padding-bottom: 1rem;
+}
+
+/* Container Styling - Horizontal Layout */
+.admin-contacts-section .container.admin-users {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Contact Details Styling - Horizontal Boxes */
+.admin-contacts-section .container.admin-users div {
+  background-color: var(--bg-color);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
+  flex: 1 1 calc(33% - 2rem); /* Adjusts the width to fit three in a row */
+}
+
+.admin-contacts-section .container.admin-users div p {
+  margin: 0.5rem 0;
+  font-size: 1.4rem;
+  color: var(--dark-color);
+}
+
+/* Delete Button Styling */
+.admin-contacts-section .container.admin-users div .btn {
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.admin-contacts-section .container.admin-users div .btn:hover {
+  background-color: #cc0000;
+  color: #ffffff;
+}
+
+.service-update-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
+}
+
+.service-update-content h1 {
+  font-size: 2.4rem;
+  color: var(--dark-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 0.2rem solid var(--btn-color);
+  padding-bottom: 1rem;
+}
+
+.service-update-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.service-update-content form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.service-update-content form .form-group label {
+  font-size: 1.6rem;
+  color: var(--dark-color);
+}
+
+.service-update-content form .form-group input {
+  background-color: var(--helper-color);
+  border: 1px solid var(--dark-color);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  font-size: 1.4rem;
+  color: var(--dark-color);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.service-update-content form .form-group textarea {
+  background-color: var(--helper-color);
+  border: 1px solid var(--dark-color);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  font-size: 1.4rem;
+  color: var(--dark-color);
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 10rem;
+}
+
+.service-update-content form .form-group input:focus,
+.service-update-content form .form-group textarea:focus {
+  outline: none;
+  border-color: var(--btn-color);
+  box-shadow: 0 0 0 0.2rem rgba(var(--btn-color-rgb), 0.2);
+}
+
+.service-update-content form .btn {
+  background-color: var(--btn-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1.5rem 3rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  align-self: flex-start;
+}
+
+.service-update-content form .btn:hover {
+  background-color: var(--dark-color);
+  color: var(--bg-color);
+}
+
+/* Added styles for service name, price, and description */
+.service-update-content form .form-group.service-name input {
+  padding: 2rem;
+  font-size: 1.8rem;
+}
+
+.service-update-content form .form-group.price input {
+  padding: 2rem;
+  font-size: 1.8rem;
+}
+
+.service-update-content form .form-group.description textarea {
+  padding: 2rem;
+  font-size: 1.8rem;
+}
+
+/** -----------------------
+** media query section css
+** -------------------------  */
+
+@media (max-width: 998px) {
+  .grid-two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .section-services {
+    .grid-three-cols {
+      grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    }
+  }
+
+  .section-registration {
+    .container {
+      .reg-img img {
+        width: 60%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 798px) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .section-registration {
+    .container {
+      .reg-img img {
+        width: 50%;
+        height: auto;
+      }
+    }
+
+    .registration-form {
+      input {
+        width: 100%;
+        padding: 0.6rem 0.6rem;
+      }
+    }
+  }
+}
+
+.container100admin-users {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.container100admin-users > div {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.container100admin-users .contact-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.container100admin-users .contact-info .username {
+  font-weight: bold;
+}
+
+.container100admin-users .contact-info .email {
+  color: #555;
+}
+
+.container100admin-users p.message {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.container100admin-users .btn {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container100admin-users .btn:hover {
+  background-color: #c82333;
+}
+
+.container100admin-users .btn:focus {
+  outline: none;
+}
